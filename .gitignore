@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv
+venv/
+env/
+.Python
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Data files
+/data/raw/
+/data/processed/
+/results/
+/models/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+
+# Reports
+/reports/figures/
+
+# Logs
+*.log
+
+# Misc
+*.swp
+*.bak
+*.tmp
+

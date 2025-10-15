@@ -8,8 +8,9 @@ import os
 import json
 import pandas as pd
 from typing import Tuple, Dict, Any
-from src.utils.config import config
+from src.utils.config import Config
 
+config = Config()
 # Check if a file exists at the given path
 # Raises FileNotFoundError if the file does not exist
 def _validate_file_exists(filepath: str ) -> None:

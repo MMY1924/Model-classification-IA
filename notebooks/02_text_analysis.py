@@ -22,6 +22,7 @@ df = pd.DataFrame(data)
 # Prepare stopwords set for text cleaning
 stop_words = set(stopwords.words('english'))
 
+
 def clean_text(text):
     """
     Cleans the input text by:
@@ -36,9 +37,11 @@ def clean_text(text):
     cleaned_words = [word for word in words if word not in stop_words and len(word) >= 3]
     return ' '.join(cleaned_words)
 
+
 # Apply text cleaning to the 'context' column
 # This creates a new column 'clean_text' with the processed text
 df['clean_text'] = df['context'].apply(clean_text)
+
 
 def vocab_stats(texts):
     """
@@ -52,6 +55,7 @@ def vocab_stats(texts):
     total_words = len(words)
     diversity = vocab_size / total_words if total_words > 0 else 0
     return vocab_size, total_words, diversity
+
 
 # Print vocabulary statistics for each label in 'type'
 # This helps to understand the lexical diversity of each class
@@ -97,6 +101,7 @@ for n in [1, 2, 3]:
     print(f"Top {n}-gram plot saved to ../reports/figures/top_{n}gram.png")
     print(f"Top {n}-grams: {words_freq}")
 
+
 # Calculate sentence and word statistics for each context
 # This adds columns for sentence count, word count, and average sentence length
 
@@ -106,18 +111,21 @@ def count_sentences(text):
     """
     return len([s for s in re.split(r'[.!?]', text) if s.strip()])
 
+
 def count_words(text):
     """
     Counts the number of words in the text.
     """
     return len(text.split())
 
+
 # Apply the functions to create new columns
 # These columns will be used for EDA summary statistics
 
 df['sentence_count'] = df['context'].apply(count_sentences)
 df['word_count'] = df['context'].apply(count_words)
-df['avg_sentence_length'] = df.apply(lambda row: row['word_count'] / row['sentence_count'] if row['sentence_count'] > 0 else 0, axis=1)
+df['avg_sentence_length'] = df.apply(
+    lambda row: row['word_count'] / row['sentence_count'] if row['sentence_count'] > 0 else 0, axis=1)
 
 print("Sentence and word count statistics (first 5 rows):")
 print(df[['sentence_count', 'word_count', 'avg_sentence_length']].head())

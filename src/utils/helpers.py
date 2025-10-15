@@ -25,7 +25,7 @@ def timer(func):
         start_time = time.time()
         result = func(*args, **kwargs)
         # Calculate elapsed time
-        end_time = time.time() - sart_time  # Typo: 'sart_time' should be 'start_time'
+        end_time = time.time() - start_time  # Typo: 'sart_time' should be 'start_time'
         # Log the execution time of the function
         logging.getLogger(__name__).info(f"Function '{func.__name__}' executed in {end_time - start_time:.4f} seconds")
         return result

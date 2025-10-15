@@ -1,14 +1,13 @@
-# Import necessary libraries for logging, timing, data handling, and system monitoring
+# Import the necessary libraries for logging, timing, data handling, and system monitoring
 import logging
 import logging.config
 # Import logging configuration from config.py
-from config import LOOGGING_CONFIG
+from src.utils.config import LOGGING_CONFIG
 import time
 from functools import wraps
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
-import pandas as pd
 import psutil
 import os
 
@@ -56,7 +55,7 @@ def plot_class_distribution(y, title="Class Distribution"):
 def load_json(path):
     """Load a JSON file and return its contents."""
     with open(path, 'r', encoding='utf-8') as f:
-        return json.load(file)  # Typo: 'file' should be 'f'
+        return json.load(f)  # Typo: 'file' should be 'f'
 
 # Function to save data to a JSON file
 def save_json(data, path):

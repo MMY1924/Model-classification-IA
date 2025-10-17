@@ -129,3 +129,4 @@ df['avg_sentence_length'] = df.apply(
 
 print("Sentence and word count statistics (first 5 rows):")
 print(df[['sentence_count', 'word_count', 'avg_sentence_length']].head())
+
